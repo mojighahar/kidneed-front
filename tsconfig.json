@@ -1,5 +1,14 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@kidneed/containers": ["./core/containers"],
+      "@kidneed/hooks": ["./core/hooks"],
+      "@kidneed/context": ["./core/context"],
+      "@kidneed/utils": ["./core/utils"],
+      "@kidneed/types": ["./core/types"],
+      "@kidneed/services": ["./core/services"]
+    },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
