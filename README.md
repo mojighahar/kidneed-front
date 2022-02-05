@@ -1,24 +1,35 @@
-# Kidnid
+# kidneed
 
-## دستورالعمل همکاری
+## Getting Started
 
-ابتدا از مخزن فعلی یک فورک بگیرید.
-سپس با توجه به تسکی که برای شما تعریف شده است. تغییرات را در ریپویی که فورک کردید اعمال نمایید. پس از کامل نمودن تسک کد خود را در ریپوی فورک شده پوش نمایید و در انتها یک پول ریکویست متناسب با تسک بر روی ریپوی اصلی ایجاد نمایید.
+- installation
 
-## نحوه ی انجام تسک
+### INSTALLATION
 
-هر تسک تعریف شده برای شما متناسب با یک فایل از پیش تعریف شده در ریپو می باشد. شما مجاز به تغییر تنها در همین فایل می باشید. برای انجام هر عملیات دیگری باید به صورت زیر عمل نمایید.
-یک دایرکتوری در روت پروژه با نام تیم خود ایجاد نمایید.
+1. Clone the project
+2. install dependencies with running below command:
 
 ```bash
-cd src && mkdir team-name
+npm install
 ```
 
-سپس می توانید کدها و استراکچر خود را در این قسمت پیاده سازی کرده و در فایل تسک ایمپورت نمایید.
+to install yarn use following guide:
+https://classic.yarnpkg.com/lang/en/docs/install
 
-توجه نمایید که شما مجاز به نصب کتابخانه یا تغییر کانفیگ پروژه نمی باشید
+3. copy `.env.example` to `.env`
 
-## مدیریت حالات اپ
+```bash
+cp .env.example .env
+```
 
-برای پیاده سازی راحت تر تسک های تعریف شده ساختار زیر در نظر گرفته شده است.
-برای تعریف کردن قسمت های مشترک ظاهر برنامه ۲ پوسته تعریف شده است
+4. run project in development:
+
+```
+npm run dev
+```
+
+### STRUCTURE
+
+This Project use **NEXTJS** for development.
+for more information please read the nextjs documentation:
+[NEXTJS DOCUMENTATION](https://nextjs.org/docs)
