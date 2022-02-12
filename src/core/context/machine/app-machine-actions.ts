@@ -1,6 +1,7 @@
 import { assign } from "xstate";
 import { Api, strapi } from "@kidneed/services";
 import {
+  AddChildEvent,
   BootstrapDone,
   ChildrenFetchDone,
   LoggedInContext,
@@ -36,6 +37,13 @@ export const childrenFetched = assign(
 
 export const childSelected = assign(
   (_: PartialAppContext, event: SelectChildEvent) => ({
+    child: event.child,
+  })
+);
+
+export const childAdded = assign(
+  (ctx: PartialAppContext, event: AddChildEvent) => ({
+    children: [event.child, ...(ctx.children || [])],
     child: event.child,
   })
 );

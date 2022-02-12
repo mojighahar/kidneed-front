@@ -29,6 +29,16 @@ export type SelectChildEvent = {
   child: Models.Child;
 };
 
+export type AddChildEvent = {
+  type: "ADD_CHILD";
+  child: Models.Child;
+};
+
+export type ParentPassEvent = {
+  type: "PARENT_PASS";
+  child: Models.Child;
+};
+
 export type RetryEvent = {
   type: "RETRY";
 };
@@ -40,6 +50,8 @@ export type LoggedOutEvent = {
 export type AppEvent =
   | LoggedInEvent
   | SelectChildEvent
+  | AddChildEvent
+  | ParentPassEvent
   | RetryEvent
   | LoggedOutEvent;
 

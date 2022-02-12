@@ -17,6 +17,11 @@ export default function useApp() {
     [send]
   );
 
+  const passParent = useCallback(
+    (user: Models.User) => send("LOGGED_IN", { user }),
+    [send]
+  );
+
   const logout = useCallback(() => send("LOGGED_OUT"), [send]);
 
   const selectChild = useCallback(
@@ -24,10 +29,17 @@ export default function useApp() {
     [send]
   );
 
+  const addChild = useCallback(
+    (child: Models.Child) => send("ADD_CHILD", { child }),
+    [send]
+  );
+
   return {
     ctx,
     login,
     logout,
+    passParent,
     selectChild,
+    addChild,
   };
 }
