@@ -1,12 +1,14 @@
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 import {openGuard} from "@kidneed/utils";
 import BaseLayout from 'layouts/baseLayout';
-import {Box, Typography, Grid, Button, Stack, Avatar} from '@mui/material';
+import {Box, Typography, Grid, Button, Stack, Avatar, Badge, Input, InputAdornment} from '@mui/material';
 import PlayIcon from 'layouts/icons/play';
 import VideoIcon from 'layouts/icons/video';
 import MusicIcon from 'layouts/icons/music';
 import ActivityIcon from 'layouts/icons/activity';
 import GameIcon from 'layouts/icons/game';
+import LoginIcon from 'layouts/icons/login';
+import LockIcon from 'layouts/icons/lock';
 
 const styles = {
   root: {
@@ -37,17 +39,17 @@ const data = [{
   time: '10:00',
   img0: '/images/childImages/d0.png',
   img1: '/images/childImages/d1.png',
-},{
+}, {
   type: 'music',
   time: '10:00',
   img0: '/images/childImages/d0.png',
   img1: '/images/childImages/d1.png',
-},{
+}, {
   type: 'activity',
   time: '10:00',
   img0: '/images/childImages/d0.png',
   img1: '/images/childImages/d1.png',
-},{
+}, {
   type: 'game',
   time: '10:00',
   img0: '/images/childImages/d0.png',
@@ -63,39 +65,48 @@ const typeColors = {
 }
 
 const typeIcons = {
-  'video': <VideoIcon />,
-  'music': <MusicIcon />,
-  'activity': <ActivityIcon />,
-  'game': <GameIcon />,
-  'book': <VideoIcon />,
+  'video': <VideoIcon/>,
+  'music': <MusicIcon/>,
+  'activity': <ActivityIcon/>,
+  'game': <GameIcon/>,
+  'book': <VideoIcon/>,
 }
 
-const DataBox = ({ data }: any) => {
+const DataBox = ({data}: any) => {
 
   // @ts-ignore
   const color = typeColors[data.type];
   // @ts-ignore
   const icon = typeIcons[data.type];
 
-  return <Box sx={{border: `5px solid ${color}`, padding: '30px 95px 30px 80px', background: '#fff', borderRadius: 6, position: 'relative', mt: 2}}>
+  return <Box sx={{
+    border: `5px solid ${color}`,
+    padding: '30px 95px 30px 80px',
+    background: '#fff',
+    borderRadius: 6,
+    position: 'relative',
+    mt: 2
+  }}>
     <Grid container spacing={5}>
-      <Stack sx={{ position: 'absolute', right: -50, top: '20%' }} spacing={1}>
-        <Box sx={{ ...styles.dataMenu, background: color }}>{icon}</Box>
-        <Box sx={{ ...styles.dataMenu, background: '#FED150' }}>
-          <Typography variant="h5" sx={{ color: '#fff', fontWeight: 700, mt: 0.5}}>{data.time}</Typography>
+      <Stack sx={{position: 'absolute', right: -50, top: '20%'}} spacing={1}>
+        <Box sx={{...styles.dataMenu, background: color}}>{icon}</Box>
+        <Box sx={{...styles.dataMenu, background: '#FED150'}}>
+          <Typography variant="h5" sx={{color: '#fff', fontWeight: 700, mt: 0.5}}>{data.time}</Typography>
         </Box>
-        <Box sx={{ ...styles.dataMenu, background: color }}><img src="/images/childImages/coins.png" /></Box>
+        <Box sx={{...styles.dataMenu, background: color}}><img src="/images/childImages/coins.png"/></Box>
       </Stack>
       <Grid item xs={6}>
         <Box textAlign="center">
           <Box component='img' src="/images/childImages/d0.png"/>
-          <Button variant="contained" color="primary" sx={{ width: 220, height: 70, borderRadius: 6, marginTop: -5 }} size="large"><PlayIcon/></Button>
+          <Button variant="contained" color="primary" sx={{width: 220, height: 70, borderRadius: 6, marginTop: -5}}
+                  size="large"><PlayIcon/></Button>
         </Box>
       </Grid>
       <Grid item xs={6}>
         <Box textAlign="center">
           <Box component='img' src="/images/childImages/d1.png"/>
-          <Button variant="contained" color="primary" sx={{ width: 220, height: 70, borderRadius: 6, marginTop: -5 }} size="large"><PlayIcon/></Button>
+          <Button variant="contained" color="primary" sx={{width: 220, height: 70, borderRadius: 6, marginTop: -5}}
+                  size="large"><PlayIcon/></Button>
         </Box>
       </Grid>
     </Grid>
@@ -108,8 +119,8 @@ const Dashboard = () => {
     <>
       <Box sx={styles.root}>
         <Box sx={{width: 120, top: 15, right: 40, maxWidth: 120, zIndex: 1, position: 'absolute', textAlign: 'center'}}>
-          <Avatar sx={{ width: 118, height: 118, p: 2, background: '#57ABF4' }} src="/images/avatar-woman.png" />
-          <Typography variant="h6" sx={{ fontWeight: 700, mt: 1 }}>حسنا خانوم</Typography>
+          <Avatar sx={{width: 118, height: 118, p: 2, background: '#57ABF4'}} src="/images/avatar-woman.png"/>
+          <Typography variant="h6" sx={{fontWeight: 700, mt: 1}}>حسنا خانوم</Typography>
         </Box>
         <Box component="img" src="/images/logo.png" alt="logo"
              sx={{width: 120, top: 35, left: 40, maxWidth: 120, zIndex: 1, position: 'absolute'}}/>
@@ -127,25 +138,32 @@ const Dashboard = () => {
 
         <Box sx={{position: 'relative', zIndex: 12}}>
           <Box sx={{maxWidth: 800, m: '300px auto 0'}}>
-            {data.map((d, index) => <DataBox key={index} data={d} />)}
+            {data.map((d, index) => <DataBox key={index} data={d}/>)}
           </Box>
         </Box>
       </Box>
 
-      <Box><Footer /></Box>
+      <Box><Footer/></Box>
     </>
   </BaseLayout>
 }
 
 const Footer = () => {
-return <Box sx={{ p: 8, background: 'linear-gradient(0deg, #E2F0FD 57.29%, rgba(226, 241, 254, 0) 100%);' }}>
+  return <Box sx={{p: 8, background: 'linear-gradient(0deg, #E2F0FD 57.29%, rgba(226, 241, 254, 0) 100%);'}}>
     <Stack direction="row" justifyContent="space-between" alignItems="flex-end">
       <Box component="img" src="/images/logo.png" alt="logo" sx={{width: 90, maxWidth: 80}}/>
-      <Box>
+      <Box sx={{textAlign: 'center'}}>
+        <Badge badgeContent={4} color="secondary" sx={{}}><Button size="large" startIcon={<LoginIcon/>} sx={{
+          background: '#fff',
+          borderRadius: 4,
+          width: 160,
+          mb: 2
+        }}>ورود والدین</Button></Badge>
         <Typography variant="h6">تمامی حقوق این سایت محفوظ است.</Typography>
       </Box>
       <Box component="img" src="/images/childImages/footer.png" alt="logo" sx={{width: 150, maxWidth: 150}}/>
     </Stack>
+    {/*<LoginDialog/>*/}
   </Box>
 }
 
@@ -173,6 +191,37 @@ const Clock = () => {
   }}>
     {time.toLocaleTimeString()}
   </Box>
+}
+
+const LoginDialog = ({open, onClose}: any) => {
+  return <Box sx={{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'fixed',
+    zIndex: 20,
+    height: '100vh',
+    top: 0,
+    width: '100%',
+    right: 0,
+    background: 'rgba(226, 241, 253, 0.9)'
+  }}>
+    <Box>
+      <Box component="img" src="/images/logo.png" alt="logo" sx={{width: 260, maxWidth: 260}}/>
+      <Typography variant="h6">برای ورود به بخظ والدین، ابتدا لطفا پاسخ سوال زیر را وارد نمایید.</Typography>
+      <Box sx={{background: '#fff', borderRadius: 8, boxShadow: '0px 14px 17px rgba(0, 0, 0, 0.08', p: 7}}>
+        <Typography variant="h6">4 * 8 چند می شود</Typography>
+        <Input
+            id="input-with-icon-adornment"
+            startAdornment={
+              <InputAdornment position="start">
+                <LockIcon/>
+              </InputAdornment>
+            }
+        />
+      </Box>
+    </Box>
+  </Box>;
 }
 
 
