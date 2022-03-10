@@ -1,0 +1,15 @@
+.addChildForm {
+    padding: 0 220px;
+}
+
+.addChildForm > * {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.formButtons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
