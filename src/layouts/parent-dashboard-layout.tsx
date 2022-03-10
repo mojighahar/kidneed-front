@@ -7,6 +7,7 @@ import {theme, RTL} from './muiBase';
 
 export type ParentDashboardLayoutProps = {
   children: React.ReactNode;
+  SideComponent: React.ReactNode;
 };
 
 const styles = {
@@ -44,7 +45,7 @@ const NavBar = () => {
   )
 }
 
-export default function ParentDashboardLayout({children}: ParentDashboardLayoutProps) {
+export default function ParentDashboardLayout({children, SideComponent}: ParentDashboardLayoutProps) {
   return <ThemeProvider theme={theme}>
     <RTL>
       <Grid container spacing={2}>
@@ -56,6 +57,10 @@ export default function ParentDashboardLayout({children}: ParentDashboardLayoutP
             {children}
           </Box>
         </Grid>
-      </Grid></RTL>
+        {!!SideComponent && <Grid item sx={{width: { lg: 300, md: 250 }}}>
+          {SideComponent}
+        </Grid>}
+      </Grid>
+    </RTL>
   </ThemeProvider>;
 }
