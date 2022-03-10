@@ -1,22 +1,28 @@
 import { Guard } from "@kidneed/types";
-import { Button, Card, Col, Form, Input, Row } from "antd";
+import { Button, Card, Col, Form, Input, message, Row } from "antd";
 import { useApp } from "@kidneed/hooks";
 import Logo from "core-team/components/logo/logo";
 import { useState } from "react";
 import TokenForm from "core-team/components/loginForm/tokenForm";
-import { useLogin } from "../../core-team/api";
+import { useLogin, useSendOtp } from "../../core-team/api";
 import { useRouter } from "next/router";
 
 const Login = () => {
   const [state, setState] = useState();
   const { login } = useApp();
   const router = useRouter();
-  const { mutateAsync: requestLogin } = useLogin();
+  const { mutateAsync: requestLogin, isLoading } = useLogin();
+  const { mutateAsync: requestOtp, isLoading: otpLoading } = useSendOtp();
 
   const handleMobileSubmit = async ({ token }: any) => {
-    const user = await requestLogin({ token });
+    const user = await requestLogin({ token, mobile: router.query.mobile });
     login(user);
     router.push("/parent");
+  };
+
+  const handleRequestOtp = async () => {
+    await requestOtp({ mobile: router.query.mobile });
+    message.info('کد تایید ارسال شد.')
   };
 
   return (
@@ -27,7 +33,7 @@ const Login = () => {
           به یکودو خوش آمدید، ابتدا لطفا وارد شوید.
         </div>
         <Card className="tw-rounded tw-rounded-3xl tw-w-1/2 tw-max-w-lg tw-pb-16 tw-pt-10 tw-px-10">
-          <TokenForm onSubmit={handleMobileSubmit} />
+          <TokenForm loading={isLoading} otpLoading={otpLoading} requestOtp={handleRequestOtp} onSubmit={handleMobileSubmit} />
         </Card>
       </div>
     </div>

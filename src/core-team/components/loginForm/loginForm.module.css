@@ -5,3 +5,7 @@
 .mobileInput input{
   direction: ltr;
 }
+
+.ltr {
+  direction: ltr;
+}

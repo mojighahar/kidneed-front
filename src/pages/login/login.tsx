@@ -10,7 +10,7 @@ import { useSendOtp } from "core-team/api";
 const Login = () => {
   const [state, setState] = useState();
   const { login } = useApp();
-  const { mutateAsync: requestOtp } = useSendOtp();
+  const { mutateAsync: requestOtp, isLoading } = useSendOtp();
   const router = useRouter();
 
   const handleMobileSubmit = ({ mobile }: any) => {
@@ -27,7 +27,7 @@ const Login = () => {
           به یکودو خوش آمدید، ابتدا لطفا وارد شوید.
         </div>
         <Card className="tw-rounded tw-rounded-3xl tw-w-1/2 tw-max-w-lg tw-pb-16 tw-pt-10 tw-px-10">
-          <MobileForm onSubmit={handleMobileSubmit} />
+          <MobileForm onSubmit={handleMobileSubmit} loading={isLoading} />
         </Card>
       </div>
     </div>
