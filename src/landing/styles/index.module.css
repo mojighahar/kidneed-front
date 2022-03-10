@@ -1,0 +1,30 @@
+.landing .menubar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.landing .menubar .menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+}
+.landing .menubar .menu .menuItems{
+    font-weight: 400;
+font-size: 14px;
+line-height: 22px;
+}
+.landing .menubar .menu .menuItems >div{
+    margin: 0 24px;
+}
+.landing .menubar .login{
+    width: 30%;
+}
+.landing .menubar .login .loginBtn{
+    background: #57ABF4;
+border-radius: 40px;
+font-weight: 400;
+font-size: 14px;
+line-height: 22px;
+color: white;
+}
