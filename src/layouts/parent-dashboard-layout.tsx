@@ -2,15 +2,13 @@ import {Grid, Button, Box} from '@mui/material';
 import Image from 'next/image';
 import LogoImage from '../public/images/logo.png';
 import DashboardIcon from 'layouts/icons/dashboard';
-import {ThemeProvider} from '@mui/material';
-import {theme, RTL} from './muiBase';
 import BaseLayout from './baseLayout';
 import CalendarIcon from 'layouts/icons/calendar';
 import TelescopeIcon from 'layouts/icons/telescope';
 import GiftIcon from 'layouts/icons/gift';
 import BulbIcon from 'layouts/icons/bulb';
-import ChatBubbleIcon from 'layouts/icons/ChatBubble';
-import SettingIcon from 'layouts/icons/Setting';
+import ChatBubbleIcon from 'layouts/icons/chatBubble';
+import SettingIcon from 'layouts/icons/setting';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
