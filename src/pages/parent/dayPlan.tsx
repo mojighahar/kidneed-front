@@ -1,5 +1,5 @@
 import ParentDashboardLayout from "layouts/parent-dashboard-layout";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Avatar, Box, Stack, Typography } from "@mui/material";
 import ArrowDown from "../../layouts/icons/arrow-down";
@@ -8,6 +8,7 @@ import PsImage1 from "public/images/temp/image-24.png";
 import PsImage2 from "public/images/temp/image-25.png";
 import PsImage3 from "public/images/temp/image-26.png";
 import { Button, Card, Tag } from "antd";
+import ContentModal from "../../core-team/components/contentModal";
 
 const SideDashboard = () => {
   return <>
@@ -49,7 +50,8 @@ const data: any = [
 ];
 
 const DayPlan = () => {
-  console.log(data);
+  const [selectPlan, setSelectPlant] = useState(false);
+
   return (
     <div className="tw-p-5">
       {data.map((item: any, index: number) => (
@@ -79,15 +81,19 @@ const DayPlan = () => {
               </div>
               <div className="tw-mt-5 tw-mr-5">
                 <Button
+                  onClick={() => setSelectPlant(!selectPlan)}
                   size="large"
                   className="hover:tw-bg-gray-200 hover:tw-text-gray-500 hover:tw-border-gray-100 tw-h-14 tw-bg-gray-100 tw-border-gray-50 tw-text-gray-500 tw-rounded-full"
                   block
-                >ویرایش</Button>
+                >
+                  ویرایش
+                </Button>
               </div>
             </div>
           </div>
         </Card>
       ))}
+      <ContentModal visible={selectPlan} onClose={() => setSelectPlant(false)} />
     </div>
   );
 };
