@@ -99,10 +99,13 @@ const DataBox = ({data}: any) => {
   }}>
     <Grid container spacing={5}>
       <Stack sx={{position: 'absolute', right: -50, top: '20%'}} spacing={1}>
+        {/* @ts-ignore */}
         <Box sx={{...styles.dataMenu, background: color}}>{icon}</Box>
+        {/* @ts-ignore */}
         <Box sx={{...styles.dataMenu, background: '#FED150'}}>
           <Typography variant="h5" sx={{color: '#fff', fontWeight: 700, mt: 0.5}}>{data.time}</Typography>
         </Box>
+        {/* @ts-ignore */}
         <Box sx={{...styles.dataMenu, background: color}}><img src="/images/childImages/coins.png"/></Box>
       </Stack>
       <Grid item xs={6}>
