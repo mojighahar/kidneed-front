@@ -127,7 +127,7 @@ const Dashboard = () => {
 
         <Box sx={{position: 'relative', zIndex: 12}}>
           <Box sx={{maxWidth: 800, m: '300px auto 0'}}>
-            {data.map((d, key) => <DataBox data={d} />)}
+            {data.map((d, index) => <DataBox key={index} data={d} />)}
           </Box>
         </Box>
       </Box>
