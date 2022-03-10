@@ -6,6 +6,7 @@ import Logo from "core-team/components/logo/logo";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { useSendOtp } from "core-team/api";
+import { loginGuard } from "./index";
 
 const Login = () => {
   const [state, setState] = useState();
@@ -34,10 +35,6 @@ const Login = () => {
   );
 };
 
-const guard: Guard = (matcher) => {
-  return matcher("guest");
-};
-
-Login.guard = guard;
+Login.guard = loginGuard;
 
 export default Login;

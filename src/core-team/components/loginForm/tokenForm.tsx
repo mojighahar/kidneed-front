@@ -25,7 +25,7 @@ const TokenForm: FC<MobileFormProp> = ({ onSubmit, requestOtp, loading, otpLoadi
       <Row gutter={15}>
         <Col span={12}>
           <Button loading={loading} htmlType="submit" type="primary" className="tw-rounded-full tw-bg-blue-500 tw-ml-5" block>
-            ارسال کد
+            تایید کد
           </Button>
         </Col>
         <Col span={12}>

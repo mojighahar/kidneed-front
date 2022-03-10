@@ -6,8 +6,9 @@ import { useState } from "react";
 import TokenForm from "core-team/components/loginForm/tokenForm";
 import { useLogin, useSendOtp } from "../../core-team/api";
 import { useRouter } from "next/router";
+import { loginGuard } from "./index";
 
-const Login = () => {
+const Verify = () => {
   const [state, setState] = useState();
   const { login } = useApp();
   const router = useRouter();
@@ -40,10 +41,7 @@ const Login = () => {
   );
 };
 
-const guard: Guard = (matcher) => {
-  return matcher("guest");
-};
 
-Login.guard = guard;
+Verify.guard = loginGuard;
 
-export default Login;
+export default Verify;
