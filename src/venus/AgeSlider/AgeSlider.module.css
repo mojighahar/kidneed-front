@@ -1,0 +1,15 @@
+.ageSliderContainer {
+    width: 460px;
+    display: flex;
+    flex-direction: column;
+}
+.ageSlider {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 40px 380px 40px;
+}
+.ageSliderMarks {
+    display: grid;
+    justify-items: end;
+    grid-template-columns: 50px 122px 122px 127px;
+}

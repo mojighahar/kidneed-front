@@ -1,0 +1,17 @@
+.customBtn {
+    border-radius: 50px;
+    height: 40px;
+    background-color: #339AF0;
+    color: white;
+    border-color: #339AF0;
+}
+.customBtn:hover {
+    background-color: #5fb0f3;
+    border-color: #5fb0f3;
+    color: white;
+}
+.customBtn:focus {
+    background-color: #339AF0;
+    color: white;
+    border-color: #339AF0;
+}
