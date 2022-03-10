@@ -27,13 +27,11 @@ import rightConnection from 'landing/media/images/rightConnection.png'
 import friendly from 'landing/media/images/friendly.png'
 import sync from 'landing/media/images/sync.png'
 import user from 'landing/media/icons/user.png'
-
 import twitter from 'landing/media/images/twitter.png'
 import message from 'landing/media/images/message.png'
 import googleplay from 'landing/media/images/googleplay.png'
 import telescopeBig from 'landing/media/images/telescope.png'
 import facebook from 'landing/media/images/facebook.png'
-
 
 export default function Home() {
   return <div className={styles.landing}>
@@ -91,10 +89,7 @@ export default function Home() {
     </div>
     <div className={styles.movieSectoin}>
       <div className={styles.movie}>
-        <video width="320" height="240" controls poster="/images/w3html5.gif">
-          <source src="movie.mp4" type="video/mp4" />
-          <source src="movie.ogg" type="video/ogg" />
-        </video>
+        <div className={styles.iframeDiv}><span style={{ display: "block", paddingTop: "57%" }}></span><iframe src="https://www.aparat.com/video/video/embed/videohash/7ZXqM/vt/frame" allowFullScreen={true} ></iframe></div>
       </div>
       <div className={styles.descMovie}>
         <div className={styles.title}>عنوانی برای توضیح بهتر</div>
@@ -353,6 +348,9 @@ export default function Home() {
             </div>
             <div className={styles.telescope}>
               <Image src={telescopeBig} />
+            </div>
+            <div className={styles.logo}>
+              <Image src={logo} />
             </div>
           </div>
         </div>
