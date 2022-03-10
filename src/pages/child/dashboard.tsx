@@ -138,10 +138,12 @@ const Dashboard = () => {
 }
 
 const Footer = () => {
-return <Box sx={{ p: 8 }}>
+return <Box sx={{ p: 8, background: 'linear-gradient(0deg, #E2F0FD 57.29%, rgba(226, 241, 254, 0) 100%);' }}>
     <Stack direction="row" justifyContent="space-between" alignItems="flex-end">
       <Box component="img" src="/images/logo.png" alt="logo" sx={{width: 90, maxWidth: 80}}/>
-      <Box><Typography variant="h6">تمامی حقوق این سایت محفوظ است.</Typography></Box>
+      <Box>
+        <Typography variant="h6">تمامی حقوق این سایت محفوظ است.</Typography>
+      </Box>
       <Box component="img" src="/images/childImages/footer.png" alt="logo" sx={{width: 150, maxWidth: 150}}/>
     </Stack>
   </Box>

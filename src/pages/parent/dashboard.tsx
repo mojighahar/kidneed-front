@@ -88,7 +88,7 @@ const Schedule = () => {
         </Stack>
         <Grid container sx={{mt: 3}}>
           {scheduleData.map((item, index) => (
-              <Grid item xs={6} sx={{mt: 2}}>
+              <Grid key={index} item xs={6} sx={{mt: 2}}>
                 <Stack direction='row' alignItems='flex-start' spacing={3}>
                   <Box sx={{width: 150}}>
                     <Image src={item.image}/>
