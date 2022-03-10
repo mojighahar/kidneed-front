@@ -214,10 +214,10 @@ const Clock = () => {
       <Box sx={{position: 'absolute', right: 0, width: '100%', height: '100%', background: '#fff'}}>
         <Box sx={{background: '#E2F1FD', height: '100%', width: '60%', float: 'right'}}></Box>
       </Box>
-      {Array.from({length: 12}).fill(0).map(() => <Box
+      {Array.from({length: 12}).fill(0).map((_, index) => <Box key={index}
           sx={{borderTop: '1px solid #8CA3A5', position: 'relative', zIndex: 1, height: BoxHeight}}/>)}
       <Box sx={{position: 'absolute', top: 0}}>
-        {Array.from({length: 3}).fill(0).map((_, i) => (<Box
+        {Array.from({length: 3}).fill(0).map((_, i) => (<Box key={i}
             sx={{borderTop: '1px solid #8CA3A5', position: 'relative', zIndex: 1, height: BoxHeight * 4, display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
           <Typography variant="h4">{8 + i * 4}</Typography>
           {i === 2 &&
